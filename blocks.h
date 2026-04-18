@@ -11,5 +11,5 @@ static const Block blocks[] = {
 	{"",  "date '+%I:%M %p - %a, %d %b %Y'",               30,       0},
 };
 
-static char delim[] = "  |  ";
-static unsigned int delimLen = 7;
+static char delim[64] = "  |  ";
+static unsigned int delimLen = 63;

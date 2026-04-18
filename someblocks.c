@@ -35,6 +35,7 @@ void sighandler(int signum);
 int getstatus(char *str, char *last);
 void statusloop();
 void termhandler(int);
+void sigpipehandler(int);
 void pstdout();
 void psomebar();
 static void (*writestatus) () = psomebar;
@@ -180,11 +181,13 @@ void sighandler(int signum)
 
 void termhandler(int _)
 {
+	(void)_;
 	statusContinue = 0;
 }
 
 void sigpipehandler(int _)
 {
+	(void)_;
 	close(somebarFd);
 	somebarFd = -1;
 }
